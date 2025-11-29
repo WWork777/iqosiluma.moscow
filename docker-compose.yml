@@ -7,9 +7,10 @@ services:
     restart: always
     environment:
       - NODE_ENV=production
-      - VIRTUAL_HOST=iqosiluma.moscow
-      - LETSENCRYPT_HOST=iqosiluma.moscow
-      - LETSENCRYPT_EMAIL=qwe@email.com
+      - VIRTUAL_HOST=iqosiluma.moscow, www.iqosiluma.moscow
+      - LETSENCRYPT_HOST=iqosiluma.moscow, www.iqosiluma.moscow
+      - LETSENCRYPT_EMAIL=parsh@gmail.com
+      - REDIRECT_www.iqosiluma.moscow=iqosiluma.moscow
     networks:
       - web
     volumes:
