@@ -41,56 +41,43 @@ const CheckoutPage = () => {
 
   const [errors, setErrors] = useState({});
 
+  const scroolTo = (element) => {
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+      element.focus();
+    }
+  }
+
   const validateForm = () => {
     const newErrors = {};
     let elements;
     let element;
 
     if (selectedMethod === "delivery") {
-      if (!formData.city.trim()) {
-        element = document.querySelector(`[placeholder="Город"]`);
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-          element.focus();
-        }
-        newErrors.city = "Введите город";
-      }
 
       if (!formData.streetAddress.trim()) {
         element = document.querySelector(`[placeholder="Номер дома и название улицы"]`);
-        if (element) {
-          element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-          });
-          element.focus();
-        }
+        scroolTo(element)
         newErrors.streetAddress = "Введите адрес";
+      }
+
+      if (!formData.city.trim()) {
+        element = document.querySelector(`[placeholder="Город"]`);
+        scroolTo(element)
+        newErrors.city = "Введите город";
       }
     }
 
     if (!formData.phoneNumber) {
       element = document.querySelector(`[placeholder="Введите номер телефона"]`);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-        element.focus();
-      }
+      scroolTo(element)
       newErrors.phoneNumber = "Введите номер телефона";
     } else if (formData.phoneNumber.replace(/\D/g, "").length < 11) {
       element = document.querySelector(`[placeholder="Введите номер телефона"]`);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-        element.focus();
-      }
+      scroolTo(element)
       newErrors.phoneNumber = "Некорректный номер телефона";
     }
 
@@ -98,11 +85,7 @@ const CheckoutPage = () => {
       elements = document.getElementsByName('lastName');
       if (elements.length > 0) {
         element = elements[0];
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-        element.focus();
+        scroolTo(element)
       }
       newErrors.lastName = "Введите имя";
     }
