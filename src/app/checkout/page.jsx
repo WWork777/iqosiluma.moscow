@@ -41,17 +41,53 @@ const CheckoutPage = () => {
 
   const [errors, setErrors] = useState({});
 
+  const scroolTo = (element) => {
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+      element.focus();
+    }
+  }
+
   const validateForm = () => {
     const newErrors = {};
+    let elements;
+    let element;
 
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Введите имя";
+    if (selectedMethod === "delivery") {
+
+      if (!formData.streetAddress.trim()) {
+        element = document.querySelector(`[placeholder="Номер дома и название улицы"]`);
+        scroolTo(element)
+        newErrors.streetAddress = "Введите адрес";
+      }
+
+      if (!formData.city.trim()) {
+        element = document.querySelector(`[placeholder="Город"]`);
+        scroolTo(element)
+        newErrors.city = "Введите город";
+      }
     }
 
     if (!formData.phoneNumber) {
+      element = document.querySelector(`[placeholder="Введите номер телефона"]`);
+      scroolTo(element)
       newErrors.phoneNumber = "Введите номер телефона";
     } else if (formData.phoneNumber.replace(/\D/g, "").length < 11) {
+      element = document.querySelector(`[placeholder="Введите номер телефона"]`);
+      scroolTo(element)
       newErrors.phoneNumber = "Некорректный номер телефона";
+    }
+
+    if (!formData.lastName.trim()) {
+      elements = document.getElementsByName('lastName');
+      if (elements.length > 0) {
+        element = elements[0];
+        scroolTo(element)
+      }
+      newErrors.lastName = "Введите имя";
     }
 
     // Валидация Telegram (необязательное поле, но если заполнено - проверяем формат)
@@ -60,16 +96,6 @@ const CheckoutPage = () => {
       !/^[@a-zA-Z0-9_]{5,32}$/.test(formData.telegram.replace(/^@/, ""))
     ) {
       newErrors.telegram = "Некорректный формат Telegram username";
-    }
-
-    if (selectedMethod === "delivery") {
-      if (!formData.city.trim()) {
-        newErrors.city = "Введите город";
-      }
-
-      if (!formData.streetAddress.trim()) {
-        newErrors.streetAddress = "Введите адрес";
-      }
     }
 
     if (!formData.privacyConsent) {
@@ -90,8 +116,11 @@ const CheckoutPage = () => {
 
     let isValid = true;
 
-    if (name === "lastName" || name === "city") {
-      isValid = /^[а-яА-ЯёЁ\s-]*$/.test(value);
+    if (name === "lastName") {
+      isValid = /^[a-zA-Zа-яА-ЯёЁ0-9\s-]*$/.test(value);
+    }
+    else if (name === "city") {
+      isValid = /^[а-яА-ЯёЁ0-9\s-]*$/.test(value);
     } else if (name === "streetAddress") {
       isValid = /^[а-яА-ЯёЁ0-9\s-]*$/.test(value);
     } else if (name === "telegram") {
@@ -784,6 +813,7 @@ ${formattedCart}
       }
     }
 
+
     setLoading(false);
   };
 
@@ -796,7 +826,11 @@ ${formattedCart}
   return (
     <div className="checkout-page">
       <div className="checkout-form">
-        <h1>Оформление заказа</h1>
+        <div className="plitka">
+          <h1>Оформление заказа</h1>
+          <h5>ВАЖНО! Укажите Ваш номер в WhatsApp или Telegram ник для связи</h5>
+        </div>
+        
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="checkout-name">
             <h4>Контактные данные</h4>
@@ -827,6 +861,7 @@ ${formattedCart}
             )}
 
             <PhoneInput
+              
               country={"ru"}
               value={formData.phoneNumber}
               onChange={handlePhoneChange}
@@ -986,10 +1021,11 @@ ${formattedCart}
                 }}
               >
                 <input
+                  className="privacy-input"
                   type="checkbox"
                   checked={formData.privacyConsent}
                   onChange={handleConsentChange}
-                  style={{ width: "auto" }}
+                  // style={{ width: "auto" }}
                 />
 
                 <Link
