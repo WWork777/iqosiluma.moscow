@@ -16,12 +16,12 @@ export async function generateMetadata() {
     description:
       "Стики Terea в наличии в Москве. Все вкусы, свежие партии, доставка в день заказа.",
     alternates: {
-      canonical: `https://iqosiluma.moscow/products/terea`,
+      canonical: `https://iqosiluma.moscow/products/stiki-terea-dlya-iqos-iluma`,
     },
     openGraph: {
       title: `Стики Terea для IQOS Iluma — большой выбор в Москве`,
       description: `Стики Terea в наличии в Москве. Все вкусы, свежие партии, доставка в день заказа.`,
-      url: `https://iqosiluma.moscow/products/terea`,
+      url: `https://iqosiluma.moscow/products/stiki-terea-dlya-iqos-iluma`,
       images: [
         {
           url: `/favicon/web-app-manifest-512x512`,
@@ -43,7 +43,7 @@ export default async function Page() {
 
   return (
     <div className="products-container">
-      <h1 style={{ position: "absolute", zIndex: "-9999" }}>Стики Terea</h1>
+      <h1 className="page-title">Купить стики Terea в Москве</h1>
       <ClientFilters items={items} />
     </div>
   );

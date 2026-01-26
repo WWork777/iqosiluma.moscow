@@ -16,12 +16,12 @@ export async function generateMetadata() {
     description:
       "Официальные IQOS Iluma в Москве. Гарантия, доставка за 1 час. Выгодные цены.",
     alternates: {
-      canonical: `https://iqosiluma.moscow/products/iqos`,
+      canonical: `https://iqosiluma.moscow/products/ustrojstva-iqos-iluma`,
     },
     openGraph: {
       title: `Купить IQOS Iluma в Москве — оригинальные устройства`,
       description: `Официальные IQOS Iluma в Москве. Гарантия, доставка за 1 час. Выгодные цены.`,
-      url: `https://iqosiluma.moscow/products/iqos`,
+      url: `https://iqosiluma.moscow/products/ustrojstva-iqos-iluma`,
       images: [
         {
           url: `/favicon/web-app-manifest-512x512`,
@@ -43,7 +43,7 @@ export default async function Page() {
 
   return (
     <div className="products-container">
-      <h1 style={{ position: "absolute", zIndex: "-9999" }}>Iqos Iluma</h1>
+      <h1 className="page-title">Купить IQOS ILUMA в Москве</h1>
       <ClientFilters items={items} />
     </div>
   );
