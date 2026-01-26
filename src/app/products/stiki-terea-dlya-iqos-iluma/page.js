@@ -10,17 +10,17 @@ async function fetchItems() {
 }
 
 export async function generateMetadata() {
-  const title = "Стики Terea для IQOS Iluma — большой выбор в Москве";
+  const title = "Стики IQOS ILUMA в Москве";
   return {
     title,
     description:
-      "Стики Terea в наличии в Москве. Все вкусы, свежие партии, доставка в день заказа.",
+      "Стики TEREA для IQOS ILUMA в Москве. Оригинал, быстрая доставка.",
     alternates: {
       canonical: `https://iqosiluma.moscow/products/stiki-terea-dlya-iqos-iluma`,
     },
     openGraph: {
-      title: `Стики Terea для IQOS Iluma — большой выбор в Москве`,
-      description: `Стики Terea в наличии в Москве. Все вкусы, свежие партии, доставка в день заказа.`,
+      title: `Стики IQOS ILUMA в Москве`,
+      description: `Стики TEREA для IQOS ILUMA в Москве. Оригинал, быстрая доставка.`,
       url: `https://iqosiluma.moscow/products/stiki-terea-dlya-iqos-iluma`,
       images: [
         {

@@ -10,17 +10,17 @@ async function fetchItems() {
 }
 
 export async function generateMetadata() {
-  const title = "Купить IQOS Iluma в Москве — оригинальные устройства";
+  const title = "IQOS ILUMA купить в Москве";
   return {
     title,
     description:
-      "Официальные IQOS Iluma в Москве. Гарантия, доставка за 1 час. Выгодные цены.",
+      "Купить IQOS ILUMA в Москве. Все модели в наличии, гарантия, удобное получение.",
     alternates: {
       canonical: `https://iqosiluma.moscow/products/ustrojstva-iqos-iluma`,
     },
     openGraph: {
-      title: `Купить IQOS Iluma в Москве — оригинальные устройства`,
-      description: `Официальные IQOS Iluma в Москве. Гарантия, доставка за 1 час. Выгодные цены.`,
+      title: `IQOS ILUMA купить в Москве`,
+      description: `Купить IQOS ILUMA в Москве. Все модели в наличии, гарантия, удобное получение.`,
       url: `https://iqosiluma.moscow/products/ustrojstva-iqos-iluma`,
       images: [
         {
