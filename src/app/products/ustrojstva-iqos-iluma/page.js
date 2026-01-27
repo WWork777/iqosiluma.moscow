@@ -24,7 +24,7 @@ async function fetchItems() {
   // Используем localhost:3003 для внутреннего API
   const baseUrl =
     process.env.NODE_ENV === "production" && typeof window === "undefined"
-      ? "http://localhost:3003" // порт 3003 для серверного рендеринга
+      ? "http://localhost:3002" // порт 3003 для серверного рендеринга
       : ""; // для клиентской стороны
 
   try {
