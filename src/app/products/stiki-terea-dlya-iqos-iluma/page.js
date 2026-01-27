@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 import ClientFilters from "./client";
 
-async function safeFetch() {
+async function safeFetch(url, options = {}) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
 
@@ -23,7 +23,7 @@ async function safeFetch() {
 async function fetchItems() {
   const baseUrl =
     process.env.NODE_ENV === "production" && typeof window === "undefined"
-      ? "http://localhost:3002"
+      ? "http://localhost:3003"
       : "";
 
   try {
