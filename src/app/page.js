@@ -9,14 +9,14 @@ import Exclusive from "../../components/Home/Exclusive/Exclusive";
 import Reviews from "../../components/Home/Reviews/Reviews";
 
 export const metadata = {
-  title: "IQOS ILUMA в Москве — купить",
+  title: "IQOS ILUMA Москва — купить",
   description:
     "IQOS ILUMA в Москве. Оригинальные устройства и стики, быстрый заказ и доставка.",
   alternates: {
     canonical: "https://iqosiluma.moscow",
   },
   openGraph: {
-    title: "IQOS ILUMA в Москве — купить",
+    title: "IQOS ILUMA Москва — купить",
     description:
       "IQOS ILUMA в Москве. Оригинальные устройства и стики, быстрый заказ и доставка.",
     url: "https://iqosiluma.moscow",
@@ -32,7 +32,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "IQOS ILUMA в Москве — купить",
+    title: "IQOS ILUMA Москва — купить",
     description:
       "IQOS ILUMA в Москве. Оригинальные устройства и стики, быстрый заказ и доставка.",
     images: ["https://iqosiluma.moscow/favicon/og-image.png"],
