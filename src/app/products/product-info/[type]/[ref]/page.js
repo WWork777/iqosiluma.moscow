@@ -45,7 +45,7 @@ export async function generateMetadata({ params }) {
   try {
     const items = await fetchItems(type, ref);
     return {
-      title: `Купить ${items.name} с доставкой по России`,
+      title: `Купить ${items.name} в Москве`,
       description: items.description || `Купить ${items.name}`,
       alternates: {
         canonical: `https://iqosiluma.moscow/products/product-info/${type}/${ref}`,
